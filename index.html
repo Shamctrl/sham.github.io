@@ -1,131 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xbox One Achievement</title>
-  <style>
-    /* Include CSS styling here or link an external stylesheet */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #1d1d1d;
-      color: #fff;
-    }
-
-    .content {
-      text-align: center;
-      padding: 20px;
-    }
-
-    .content-settings {
-      margin-bottom: 20px;
-    }
-
-    .content-settings__input {
-      display: block;
-      margin: 10px auto;
-      padding: 10px;
-      font-size: 16px;
-      width: 80%;
-    }
-
-    .content-settings__button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: #107c10;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-    }
-
-    .achievement {
-      display: none; /* Initially hidden */
-      animation: fadeIn 1s forwards;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch Rare Achievement</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="content">
-    <div class="content-settings">
-      <h1>Xbox One Achievement</h1>
-      <input value="My First Pen" class="content-settings__input" id="a_title" placeholder="Achievement" type="text" />
-      <input value="100" class="content-settings__input" id="a_score" placeholder="Score" type="number" />
-      <div class="content-settings__check">
-        <input checked type="checkbox" id="a_rare" />
-        <label for="a_rare">Rare</label>
-      </div>
-      <button id="a_trigger" class="content-settings__button">Trigger</button>
-    </div>
-    <!-- ELEMENTS FOR ANIMATION -->
-    <div class="achievement">
-      <div class="animation">
-        <div class="circle">
-          <div class="img trophy_animate trophy_img">
-            <img class="trophy_1" src="https://dl.dropboxusercontent.com/s/k0n14tzcl4q61le/trophy_full.svg" />
-            <img class="trophy_2" src="https://dl.dropboxusercontent.com/s/cd4k1h6w1c8an9j/trophy_no_handles.svg" />
-          </div>
-          <div class="img xbox_img">
-            <img src="https://dl.dropboxusercontent.com/s/uopiulb5yeo1twm/xbox.svg?dl=0" />
-          </div>
-          <div class="brilliant-wrap">
-            <div class="brilliant"></div>
-          </div>
+    <div id="notification">
+        <div class="diamond"></div>
+        <div class="text-container">
+            <h1 id="achievement-name">Rare Achievement Unlocked!</h1>
+            <p id="achievement-desc">"This is your custom description."</p>
         </div>
-        <div class="banner-outer">
-          <div class="banner">
-            <div class="achieve_disp">
-              <span class="unlocked"></span>
-              <div class="score_disp">
-                <div class="gamerscore">
-                  <img width="20px" src="https://dl.dropboxusercontent.com/s/gdqf5amvjkx9rfb/G.svg?dl=0" />
-                  <span class="acheive_score"></span>
-                </div>
-                <span class="hyphen_sep">-</span>
-                <span class="achiev_name"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-
-  <script>
-    // JavaScript to handle animation triggering
-    document.getElementById("a_trigger").addEventListener("click", function () {
-      const title = document.getElementById("a_title").value;
-      const score = document.getElementById("a_score").value;
-      const isRare = document.getElementById("a_rare").checked;
-
-      const achievement = document.querySelector(".achievement");
-      achievement.style.display = "block";
-
-      const achievName = document.querySelector(".achiev_name");
-      const achieveScore = document.querySelector(".acheive_score");
-
-      achievName.textContent = title;
-      achieveScore.textContent = score;
-
-      document.querySelector(".unlocked").textContent = isRare
-        ? "Rare Achievement Unlocked!"
-        : "Achievement Unlocked!";
-    });
-  </script>
+    <audio id="notification-sound" src="notification.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
 </body>
 </html>
