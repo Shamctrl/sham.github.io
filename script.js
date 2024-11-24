@@ -21,5 +21,5 @@ function showNotification(name, desc) {
 
 // Trigger a test notification
 setTimeout(() => {
-    showNotification("Rare Achievement Unlocked!", "You reached 100 viewers!");
+    showNotification("New Follower Achievement Unlocked!", "TY for the Follow!");
 }, 2000);
